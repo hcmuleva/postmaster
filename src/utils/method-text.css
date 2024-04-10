@@ -1,0 +1,24 @@
+.method-icon-txt {
+  font-weight: 800;
+  font-size: 0.55rem;
+  padding-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.green {
+  color: #66ff40;
+}
+
+.yellow {
+  color: rgb(226, 223, 32);
+}
+
+.blue {
+  color: #1783ff;
+}
+
+.red {
+  color: #ff1717;
+}

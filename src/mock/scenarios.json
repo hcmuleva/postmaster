@@ -1,0 +1,56 @@
+{
+  "scenarios": [
+    {
+      "name": "User Posts",
+      "endpoints": [
+        {
+          "name": "Get All Posts",
+          "method": "GET",
+          "url": "https://api.fake-rest.refine.dev/posts",
+          "description": "Get all posts created by users"
+        },
+        {
+          "name": "Create Post",
+          "method": "POST",
+          "url": "https://api.fake-rest.refine.dev/posts",
+          "description": "Create a new post"
+        },
+        {
+          "name": "Get Post by ID",
+          "method": "GET",
+          "url": "https://api.fake-rest.refine.dev/posts/:id",
+          "description": "Get a specific post by its ID"
+        },
+        {
+          "name": "Update Post",
+          "method": "PUT",
+          "url": "https://api.fake-rest.refine.dev/posts/:id",
+          "description": "Update an existing post"
+        },
+        {
+          "name": "Delete Post",
+          "method": "DELETE",
+          "url": "https://api.fake-rest.refine.dev/posts/:id",
+          "description": "Delete an existing post"
+        }
+      ]
+    },
+    {
+      "name": "User Profile",
+      "endpoints": [
+        {
+          "name": "Get User Profile",
+          "method": "GET",
+          "url": "https://api.fake-rest.refine.dev/users/:userId",
+          "description": "Get user profile information"
+        },
+        {
+          "name": "Update User Profile",
+          "method": "PUT",
+          "url": "https://api.fake-rest.refine.dev/users/:userId",
+          "description": "Update user profile information"
+        }
+      ]
+    }
+  ]
+}
