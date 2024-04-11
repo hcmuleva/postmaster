@@ -1,9 +1,12 @@
+import RequestForm from "../../form/request-form";
 import RequestHeaderComponent from "./request-header";
-
-export default function Request({ requestData }) {
+import RequestHeaderOptions from "./request-header-option";
+export default function Request() {
   return (
     <>
-      <RequestHeaderComponent requestData={requestData} />
+      <RequestHeaderComponent />
+      <RequestHeaderOptions />
+      <RequestForm />
     </>
   );
 }

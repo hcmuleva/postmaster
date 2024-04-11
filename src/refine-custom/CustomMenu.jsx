@@ -1,9 +1,10 @@
 import { Menu } from "antd";
-export default function CustomMenu({ menuData, setCurrentContext }) {
+import { useContext } from "react";
+import { AppContext } from "../context";
+export default function CustomMenu({ menuData }) {
+  const { setScenarioRequest } = useContext(AppContext);
   const handleClick = (e) => {
-    console.log("hello");
-    console.log(e);
-    setCurrentContext(e.item.props["data-custom-value"]);
+    setScenarioRequest(e.item.props["data-custom-value"]);
   };
   return (
     <Menu

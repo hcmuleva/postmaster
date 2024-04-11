@@ -1,18 +1,31 @@
 import { Layout } from "antd";
 import CustomSider from "./CustomSider";
-import scenariosData from "../mock/scenarios.json";
-import { useState } from "react";
-import CustomContextProvider from "../context";
+import ContextView from "../context/layout/context-view";
+import { useContext, useMemo } from "react";
+import { AppContext } from "../context";
+import RequestLayout from "../context/layout/request-layout";
+import ScenarioLayout from "../context/layout/scenario-layout";
+import WelcomePage from "../utils/loading";
+
 const CustomLayout = () => {
-  const [currentContext, setCurrentContext] = useState(null);
+  const { currentContext } = useContext(AppContext);
+
+  const renderComponent = useMemo(() => {
+    switch (currentContext) {
+      case "REQUEST":
+        return <RequestLayout />;
+      case "SCENARIO":
+        return <ScenarioLayout />;
+      default:
+        return <WelcomePage />;
+    }
+  }, [currentContext]);
+
   return (
     <Layout style={{ display: "flex", flexDirection: "row" }}>
-      <CustomSider
-        scenariosData={scenariosData}
-        setCurrentContext={setCurrentContext}
-      />
+      <CustomSider />
       <Layout.Content>
-        <CustomContextProvider currentContext={currentContext} />
+        <ContextView>{renderComponent}</ContextView>
       </Layout.Content>
     </Layout>
   );
