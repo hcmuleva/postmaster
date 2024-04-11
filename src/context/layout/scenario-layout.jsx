@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AppContext } from "..";
-
+import { AppContext } from "../index";
 function ScenarioLayout() {
   const { scenario } = useContext(AppContext);
-  return JSON.stringify(scenario);
+  console.log(scenario);
+  return <div>{JSON.stringify(scenario)}</div>;
 }
 
 export default ScenarioLayout;

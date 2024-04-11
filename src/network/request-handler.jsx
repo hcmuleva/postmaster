@@ -1,14 +1,38 @@
+import axios from "axios";
 import { useState } from "react";
 
 function useRequestHandler() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const fetchData = async (request) => {
+  const axiosInstace = axios.create();
+
+  const getHeaderOptionsObject = (headerOptions) => {
+    const headerOptionObject = headerOptions?.reduce((acc, curr) => {
+      acc[curr.key] = curr.value;
+      return acc;
+    }, {});
+    return headerOptionObject;
+  };
+
+  const getParsedRequestBody = async (requestBody) => {
+    return Object.keys(requestBody).length > 0
+      ? await JSON.parse(requestBody)
+      : undefined;
+  };
+
+  const fetchData = async (request, headerOptions, requestBody) => {
+    const { url, method } = request;
+    const headers = getHeaderOptionsObject(headerOptions);
+    const parsedRequestBody = await getParsedRequestBody(requestBody);
     try {
-      const response = await fetch(request.url);
-      const fetchedData = await response.json();
-      setData(fetchedData);
+      const response = await axiosInstace({
+        baseURL: url,
+        method,
+        headers,
+        data: parsedRequestBody,
+      });
+      setData(response);
     } catch (error) {
       setError(error);
     } finally {

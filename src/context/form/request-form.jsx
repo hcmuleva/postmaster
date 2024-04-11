@@ -1,21 +1,23 @@
 import { Select, Input, Button } from "antd";
 import MethodText, { getAllMethods } from "../../utils/method-text";
 import { useContext, useEffect } from "react";
-import { AppContext } from "..";
 import useRequestHandler from "../../network/request-handler";
+import { CommunicationContext } from "../communication-context";
+import { AppContext } from "..";
 
 const { Option } = Select;
 export default function RequestForm() {
-  const { setScenarioRequest } = useContext(AppContext);
+  const { setScenarioRequest, request } = useContext(AppContext);
   const { data, fetchData } = useRequestHandler();
-  const { request, setCurrentResponse } = useContext(AppContext);
+  const { requestBody, headerOptions, setCurrentResponse } =
+    useContext(CommunicationContext);
 
   const handleMethodChange = (value) => {
     setScenarioRequest({ ...request, method: value });
   };
 
   const RequestMethodSelect = () => (
-    <Select defaultValue={request.method} onChange={handleMethodChange}>
+    <Select defaultValue={request?.method} onChange={handleMethodChange}>
       {getAllMethods().map((method, index) => (
         <Option value={method} key={index}>
           <div>
@@ -32,7 +34,7 @@ export default function RequestForm() {
   }
 
   function handleSend() {
-    fetchData(request);
+    fetchData(request, headerOptions, requestBody);
   }
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export default function RequestForm() {
     <form style={{ display: "flex", gap: "1rem" }}>
       <Input
         addonBefore={<RequestMethodSelect />}
-        value={request.url}
+        value={request?.url}
         onChange={handleURLChange}
       />
       <Button type="primary" onClick={handleSend}>

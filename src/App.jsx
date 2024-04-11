@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import "@refinedev/antd/dist/reset.css";
 import CustomLayout from "./refine-custom/CustomLayout";
 import { AppContextProvider } from "./context";
+import { CommunicationContextProvider } from "./context/communication-context";
 const API_URL = "https://api.fake-rest.refine.dev";
 
 const App = () => {
@@ -23,7 +24,9 @@ const App = () => {
         }}
       >
         <AppContextProvider>
-          <CustomLayout></CustomLayout>
+          <CommunicationContextProvider>
+            <CustomLayout></CustomLayout>
+          </CommunicationContextProvider>
         </AppContextProvider>
         <UnsavedChangesNotifier />
       </Refine>

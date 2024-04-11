@@ -1,12 +1,10 @@
 import { createContext, useState } from "react";
-
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   const [request, setRequest] = useState(null);
   const [scenario, setScenario] = useState(null);
   const [currentContext, setCurrentContext] = useState(null);
-  const [response, setResponse] = useState(null);
 
   const setScenarioRequest = (newRequest) => {
     setRequest(newRequest);
@@ -18,10 +16,6 @@ const AppContextProvider = ({ children }) => {
     setCurrentContext("SCENARIO");
   };
 
-  const setCurrentResponse = (newResponse) => {
-    setResponse(newResponse);
-  };
-
   return (
     <AppContext.Provider
       value={{
@@ -30,8 +24,6 @@ const AppContextProvider = ({ children }) => {
         scenario,
         setAppScenario,
         currentContext,
-        response,
-        setCurrentResponse,
       }}
     >
       {children}
