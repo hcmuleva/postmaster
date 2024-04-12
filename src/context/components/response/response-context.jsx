@@ -25,3 +25,5 @@ export default function RequestStatus({ code }) {
     </p>
   );
 }
+
+export { status };

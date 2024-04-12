@@ -1,17 +1,31 @@
-import { useContext } from "react";
-import { JsonView, defaultStyles } from "react-json-view-lite";
+import { useState } from "react";
+import { defaultStyles } from "react-json-view-lite";
 import "react-json-view-lite/dist/index.css";
-import { CommunicationContext } from "../../communication-context";
+import JSONTree from "react-json-view";
 
-export default function JsonViewerComponent() {
-  const { response } = useContext(CommunicationContext);
+export default function JsonViewerComponent({ response }) {
   // console.log(response, response.status);
   // console.log(response.statusText);
   // console.log(response.headers);
   // console.log(response.config);
+
+  if (!response) {
+    return <div></div>;
+  }
+
+  console.log(response);
+
+  const [clickedPath, setClickedPath] = useState(null);
+  const handleClick = (path) => {
+    console.log(path);
+    setClickedPath(path);
+  };
   return (
     <>
-      <JsonView data={response} style={defaultStyles}></JsonView>;
+      <JSONTree src={response} style={defaultStyles} />;
     </>
   );
 }
+
+
+

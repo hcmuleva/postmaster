@@ -7,8 +7,10 @@ function useRequestHandler() {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const axiosInstace = axios.create();
+
   axiosInstace.interceptors.request.use(onRequest, onError);
   axiosInstace.interceptors.response.use(onResponse, onError);
+
   const getHeaderOptionsObject = (headerOptions) => {
     const headerOptionObject = headerOptions?.reduce((acc, curr) => {
       acc[curr.key] = curr.value;

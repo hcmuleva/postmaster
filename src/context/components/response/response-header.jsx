@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { CommunicationContext } from "../../communication-context";
 import "../../../styles/response-header.css";
-import RequestStatus from "./response-status";
+import RequestStatus from "./response-context";
 function ResponseHeader() {
   const { response } = useContext(CommunicationContext);
-  console.log(response);
 
   if (!response) {
-    return <div>Response Header</div>;
+    return <div></div>;
   }
 
   return (

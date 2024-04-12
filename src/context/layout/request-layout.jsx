@@ -1,6 +1,6 @@
 import Request from "../components/requests/request";
 import RequestTabs from "../components/requests/request-option-tabs";
-import Response from "../components/response/response";
+import ResponseLayout from "./response-layout";
 Request;
 
 function RequestLayout() {
@@ -8,7 +8,7 @@ function RequestLayout() {
     <>
       <Request />
       <RequestTabs />
-      <Response />
+      <ResponseLayout />
     </>
   );
 }
