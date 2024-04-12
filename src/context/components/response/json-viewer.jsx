@@ -1,31 +1,32 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { defaultStyles } from "react-json-view-lite";
 import "react-json-view-lite/dist/index.css";
 import JSONTree from "react-json-view";
+import { AppContext } from "../../../context/index";
+import VariableModal from "../variables/variable-modal";
+import VariableView from "../variables/variable-view";
+import { TestRunnerContext } from "../../test-runner-context";
 
 export default function JsonViewerComponent({ response }) {
-  // console.log(response, response.status);
-  // console.log(response.statusText);
-  // console.log(response.headers);
-  // console.log(response.config);
+  const { request } = useContext(AppContext);
+  const { setVariableModalView, variableModalState, setVariableModalData } =
+    useContext(TestRunnerContext);
 
   if (!response) {
     return <div></div>;
   }
 
-  console.log(response);
-
-  const [clickedPath, setClickedPath] = useState(null);
   const handleClick = (path) => {
-    console.log(path);
-    setClickedPath(path);
+    setVariableModalData({
+      path,
+      request,
+    });
+    setVariableModalView(true);
   };
   return (
     <>
-      <JSONTree src={response} style={defaultStyles} />;
+      <JSONTree src={response} style={defaultStyles} onSelect={handleClick} />;
+      {variableModalState && <VariableView children={<VariableModal />} />}
     </>
   );
 }
-
-
-

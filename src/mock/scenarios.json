@@ -33,7 +33,8 @@
           "url": "https://api.fake-rest.refine.dev/posts/:id",
           "description": "Delete an existing post"
         }
-      ]
+      ],
+      "variables": []
     },
     {
       "name": "User Profile",
@@ -50,7 +51,8 @@
           "url": "https://api.fake-rest.refine.dev/users/:userId",
           "description": "Update user profile information"
         }
-      ]
+      ],
+      "variables": []
     }
   ]
 }

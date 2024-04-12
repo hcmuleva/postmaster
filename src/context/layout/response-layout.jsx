@@ -3,6 +3,7 @@ import { CommunicationContext } from "../communication-context";
 import JsonViewerComponent from "../components/response/json-viewer";
 import ResponseHeader from "../components/response/response-header";
 import ResponseView from "../components/response/response-view";
+
 function ResponseLayout() {
   const { response } = useContext(CommunicationContext);
 
@@ -11,7 +12,12 @@ function ResponseLayout() {
       <ResponseView children={<ResponseHeader />} />
       {response && (
         <ResponseView
-          children={<JsonViewerComponent response={response?.data} />}
+          children={
+            <JsonViewerComponent
+              response={response?.data}
+              type={"RESPONSE_BODY"}
+            />
+          }
         />
       )}
     </>
