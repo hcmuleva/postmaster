@@ -151,6 +151,11 @@ const HeaderOptionForm = () => {
       }),
     };
   });
+
+  const rowSelection = {
+    //! need to add selection options
+  };
+
   return (
     <div>
       <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
@@ -173,6 +178,7 @@ const HeaderOptionForm = () => {
         dataSource={headerOptions}
         columns={columns}
         pagination={null}
+        rowSelection={{ type: "checkbox", ...rowSelection }}
       />
     </div>
   );

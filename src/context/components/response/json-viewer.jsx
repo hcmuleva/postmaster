@@ -9,5 +9,9 @@ export default function JsonViewerComponent() {
   // console.log(response.statusText);
   // console.log(response.headers);
   // console.log(response.config);
-  return <JsonView data={response} style={defaultStyles}></JsonView>;
+  return (
+    <>
+      <JsonView data={response} style={defaultStyles}></JsonView>;
+    </>
+  );
 }

@@ -1,0 +1,18 @@
+.response-header {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.success {
+  color: #4caf50; /* Green */
+}
+
+.error {
+  color: #ff5252; /* Red */
+}
+
+.request-code-text {
+  font-weight: 500;
+}

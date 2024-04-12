@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import { onError, onRequest, onResponse } from "./axios-interseptor";
 
 function useRequestHandler() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const axiosInstace = axios.create();
-
+  axiosInstace.interceptors.request.use(onRequest, onError);
+  axiosInstace.interceptors.response.use(onResponse, onError);
   const getHeaderOptionsObject = (headerOptions) => {
     const headerOptionObject = headerOptions?.reduce((acc, curr) => {
       acc[curr.key] = curr.value;
@@ -34,7 +36,9 @@ function useRequestHandler() {
       });
       setData(response);
     } catch (error) {
+      console.log("error inside handler", error);
       setError(error);
+      setData(error.response);
     } finally {
       setLoading(false);
     }
