@@ -11,7 +11,7 @@ export default function JsonViewerComponent({ response, type, subType }) {
   const { request } = useContext(AppContext);
   const { setVariableModalView, variableModalState, setVariableModalData } =
     useContext(TestRunnerContext);
-
+  console.log(response);
   if (!response) {
     return <div></div>;
   }
@@ -26,8 +26,12 @@ export default function JsonViewerComponent({ response, type, subType }) {
   };
   return (
     <>
-      <JSONTree src={response} style={defaultStyles} onSelect={handleClick} />;
-      {variableModalState && <VariableView children={<VariableModal />} />}
+      <JSONTree
+        src={response}
+        style={{ ...defaultStyles, width: "80%" }}
+        onSelect={handleClick}
+      />
+      ;{variableModalState && <VariableView children={<VariableModal />} />}
     </>
   );
 }
