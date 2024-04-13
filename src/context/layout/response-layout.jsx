@@ -15,7 +15,8 @@ function ResponseLayout() {
           children={
             <JsonViewerComponent
               response={response?.data}
-              type={"RESPONSE_BODY"}
+              type={"RESPONSE"}
+              subType={"BODY"}
             />
           }
         />

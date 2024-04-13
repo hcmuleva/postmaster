@@ -25,4 +25,4 @@ function getAllMethods() {
   return Object.keys(methodColors);
 }
 
-export { getAllMethodTexts, getAllMethods, methodColors };
+export { getAllMethodTexts, MethodText, getAllMethods, methodColors };

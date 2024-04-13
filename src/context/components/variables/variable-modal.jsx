@@ -18,10 +18,11 @@ function VariableModal() {
           Create New Variable
         </p>
       }
-      children={<VariableCreateForm preData={{ pathString, meta }} />}
       open={variableModalState}
       onCancel={() => setVariableModalView(false)}
-    />
+    >
+      <VariableCreateForm preData={{ pathString, meta }} />
+    </Modal>
   );
 }
 

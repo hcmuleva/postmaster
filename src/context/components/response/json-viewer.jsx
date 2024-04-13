@@ -7,7 +7,7 @@ import VariableModal from "../variables/variable-modal";
 import VariableView from "../variables/variable-view";
 import { TestRunnerContext } from "../../test-runner-context";
 
-export default function JsonViewerComponent({ response }) {
+export default function JsonViewerComponent({ response, type, subType }) {
   const { request } = useContext(AppContext);
   const { setVariableModalView, variableModalState, setVariableModalData } =
     useContext(TestRunnerContext);
@@ -17,9 +17,11 @@ export default function JsonViewerComponent({ response }) {
   }
 
   const handleClick = (path) => {
+    console.log(path);
     setVariableModalData({
       path,
       request,
+      meta: { type, subType },
     });
     setVariableModalView(true);
   };
