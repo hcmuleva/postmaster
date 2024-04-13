@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import useUpdateHook from "../strapi-refine-actions/update-provider";
 
 const CommunicationContext = createContext();
 
@@ -6,8 +7,17 @@ const CommunicationContextProvider = ({ children }) => {
   const [response, setResponse] = useState(null);
   const [headerOptions, setHeaderOptions] = useState([]);
   const [requestBody, setRequestBody] = useState({});
+  const { updateRequest } = useUpdateHook();
 
-  const setCurrentResponse = (newResponse) => {
+  const setCurrentResponse = ({ newResponse, requestId }) => {
+    if (response && response.id === requestId) {
+      updateRequest({
+        id: requestId,
+        values: {
+          response: newResponse,
+        },
+      });
+    }
     setResponse(newResponse);
   };
 

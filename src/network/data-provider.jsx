@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
-import ScenariosData from "../mock/scenarios.json";
+import { useList } from "@refinedev/core";
+
 const useData = (initialData) => {
   const [data, setData] = useState(initialData);
+  const [dataCount, setDataCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const { data: scenarioData, isLoading } = useList({
+    resource: "scenarios",
+    meta: {
+      populate: "*",
+      
+    },
+  });
+
+  const fetchData = () => {
     try {
-      setData(ScenariosData);
+      setData(scenarioData.data);
+      setDataCount(scenarioData.total);
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -16,11 +27,13 @@ const useData = (initialData) => {
   };
 
   useEffect(() => {
-    fetchData();
+    if (scenarioData && !isLoading) {
+      fetchData();
+    }
     return () => {};
-  }, []);
+  }, [scenarioData, isLoading]);
 
-  return { data, loading, error };
+  return { data, dataCount, loading, error };
 };
 
 export default useData;

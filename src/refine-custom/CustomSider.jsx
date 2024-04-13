@@ -8,17 +8,17 @@ export default function CustomSider() {
   const [scenarios, setSenarios] = useState([]);
   useEffect(() => {
     if (data) {
-      const scenarios = data.scenarios.map((item, index) => {
-        const requests = item.endpoints.map((item, index) =>
+      const scenarios = data.map((item, index) => {
+        const requests = item.steps.map((request_item, index) =>
           getMenuItem(
             <p style={{ marginBottom: "0" }}>
-              <span>{item.name}</span>
+              <span>{request_item.name}</span>
             </p>,
             index,
-            <MethodText text={item.method} key={index} />,
+            <MethodText text={request_item.requesttype} key={index} />,
             null,
             null,
-            item
+            { ...request_item, scenario_id: item.id }
           )
         );
         return getMenuItem(

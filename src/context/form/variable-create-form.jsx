@@ -1,6 +1,5 @@
 import { Form, Input, Select } from "antd";
 import {
-  communicationDataType,
   communicationDataTypeKeys,
   getCommunicationDataSubType,
 } from "../../utils/communication-data-utils";
@@ -26,6 +25,7 @@ function VariableCreateForm({ preData }) {
   type && form.setFieldValue("type", type);
   subType && form.setFieldValue("subtype", subType);
   form.setFieldValue("name", "{{}}");
+  
   const onFinish = (values) => {
     console.log("variable values", values);
   };

@@ -13,11 +13,11 @@ export default function RequestForm() {
     useContext(CommunicationContext);
 
   const handleMethodChange = (value) => {
-    setScenarioRequest({ ...request, method: value });
+    setScenarioRequest({ ...request, requesttype: value });
   };
 
   const RequestMethodSelect = () => (
-    <Select defaultValue={request?.method} onChange={handleMethodChange}>
+    <Select defaultValue={request?.requesttype} onChange={handleMethodChange}>
       {getAllMethods().map((method, index) => (
         <Option value={method} key={index}>
           <div>
@@ -38,7 +38,7 @@ export default function RequestForm() {
   }
 
   useEffect(() => {
-    setCurrentResponse(data);
+    setCurrentResponse({ newResponse: data, requestId: request.id });
   }, [data]);
 
   return (

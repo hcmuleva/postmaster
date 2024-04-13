@@ -26,13 +26,13 @@ function useRequestHandler() {
   };
 
   const fetchData = async (request, headerOptions, requestBody) => {
-    const { url, method } = request;
+    const { url, requesttype } = request;
     const headers = getHeaderOptionsObject(headerOptions);
     const parsedRequestBody = await getParsedRequestBody(requestBody);
     try {
       const response = await axiosInstace({
         baseURL: url,
-        method,
+        method: requesttype,
         headers,
         data: parsedRequestBody,
       });

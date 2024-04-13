@@ -17,7 +17,6 @@ export default function JsonViewerComponent({ response, type, subType }) {
   }
 
   const handleClick = (path) => {
-    console.log(path);
     setVariableModalData({
       path,
       request,
