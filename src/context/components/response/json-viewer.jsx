@@ -11,7 +11,6 @@ export default function JsonViewerComponent({ response, type, subType }) {
   const { request } = useContext(AppContext);
   const { setVariableModalView, variableModalState, setVariableModalData } =
     useContext(TestRunnerContext);
-  console.log(response);
   if (!response) {
     return <div></div>;
   }

@@ -8,7 +8,7 @@ const useUpdateHook = () => {
       resource: "steps",
       values: { ...values },
       id,
-      invalidates: ["steps","scenarios"],
+      invalidates: ["steps", "scenarios"],
     });
   };
 

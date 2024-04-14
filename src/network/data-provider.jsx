@@ -7,11 +7,14 @@ const useData = (initialData) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { data: scenarioData, isLoading } = useList({
+  const {
+    data: scenarioData,
+    isLoading,
+    que,
+  } = useList({
     resource: "scenarios",
     meta: {
       populate: "*",
-      
     },
   });
 

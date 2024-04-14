@@ -4,7 +4,7 @@ import { AppContext } from "../context";
 export default function CustomMenu({ menuData }) {
   const { setScenarioRequest } = useContext(AppContext);
   const handleClick = (e) => {
-    setScenarioRequest(e.item.props["data-custom-value"]);
+    setScenarioRequest(e.item.props["data-custom-value"], "INIT_UPDATE");
   };
   return (
     <Menu

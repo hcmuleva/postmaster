@@ -3,21 +3,26 @@ import MethodText, { getAllMethods } from "../../utils/method-text";
 import { useContext, useEffect } from "react";
 import useRequestHandler from "../../network/request-handler";
 import { CommunicationContext } from "../communication-context";
+import { FileAddOutlined } from "@ant-design/icons";
 import { AppContext } from "..";
+import { Tooltip } from "antd";
 
 const { Option } = Select;
 export default function RequestForm() {
-  const { setScenarioRequest, request } = useContext(AppContext);
+  const { setScenarioRequest, unsavedRequest } = useContext(AppContext);
   const { data, fetchData } = useRequestHandler();
   const { requestBody, headerOptions, setCurrentResponse } =
     useContext(CommunicationContext);
 
   const handleMethodChange = (value) => {
-    setScenarioRequest({ ...request, requesttype: value });
+    setScenarioRequest({ ...unsavedRequest, requesttype: value });
   };
 
   const RequestMethodSelect = () => (
-    <Select defaultValue={request?.requesttype} onChange={handleMethodChange}>
+    <Select
+      defaultValue={unsavedRequest?.requesttype}
+      onChange={handleMethodChange}
+    >
       {getAllMethods().map((method, index) => (
         <Option value={method} key={index}>
           <div>
@@ -28,26 +33,38 @@ export default function RequestForm() {
     </Select>
   );
 
+  function saveChanges() {
+    setScenarioRequest(unsavedRequest, "UPDATE");
+  }
+
   function handleURLChange(e) {
     const { value } = e.target;
-    setScenarioRequest({ ...request, url: value });
+    setScenarioRequest({ ...unsavedRequest, url: value });
   }
 
   function handleSend() {
-    fetchData(request, headerOptions, requestBody);
+    fetchData(unsavedRequest, headerOptions, requestBody);
   }
 
   useEffect(() => {
-    setCurrentResponse({ newResponse: data, requestId: request.id });
+    if (data) {
+      setCurrentResponse(data, "UPDATE");
+    }
   }, [data]);
 
   return (
     <form style={{ display: "flex", gap: "1rem" }}>
       <Input
         addonBefore={<RequestMethodSelect />}
-        value={request?.url}
+        value={unsavedRequest?.url}
         onChange={handleURLChange}
       />
+
+      <Tooltip placement="bottom" title={"Save"}>
+        <Button type="default" onClick={saveChanges}>
+          <FileAddOutlined />
+        </Button>
+      </Tooltip>
       <Button type="primary" onClick={handleSend}>
         Send
       </Button>

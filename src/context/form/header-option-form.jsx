@@ -84,7 +84,7 @@ const HeaderOptionForm = () => {
   const [count, setCount] = useState(2);
   const handleDelete = (key) => {
     const newData = headerOptions.filter((item) => item.key !== key);
-    setCurrentHeaderOptions(newData);
+    setCurrentHeaderOptions(newData, "UPDATE");
   };
   const defaultColumns = [
     {
@@ -117,7 +117,7 @@ const HeaderOptionForm = () => {
       key: "Accept",
       value: "*/*",
     };
-    setCurrentHeaderOptions([...headerOptions, newData]);
+    setCurrentHeaderOptions([...headerOptions, newData], "UPDATE");
     setCount(count + 1);
   };
   const handleSave = (row) => {
@@ -128,7 +128,7 @@ const HeaderOptionForm = () => {
       ...item,
       ...row,
     });
-    setCurrentHeaderOptions(newData);
+    setCurrentHeaderOptions(newData, "UPDATE");
   };
   const components = {
     body: {

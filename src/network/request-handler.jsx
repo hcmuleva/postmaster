@@ -37,6 +37,7 @@ function useRequestHandler() {
         data: parsedRequestBody,
       });
       setData(response);
+      console.log(response);
     } catch (error) {
       console.log("error inside handler", error);
       setError(error);

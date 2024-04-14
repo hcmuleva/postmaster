@@ -7,21 +7,28 @@ const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   const [request, setRequest] = useState(null);
+  const [unsavedRequest, setUnsavedRequest] = useState(null);
   const [scenario, setScenario] = useState(null);
   const [currentContext, setCurrentContext] = useState(null);
   const { updateRequest } = useUpdateHook();
 
-  const setScenarioRequest = (newRequest) => {
-    if (request) {
+  const setScenarioRequest = (newRequest, type) => {
+    if (type === "UPDATE") {
       const { id } = request;
       const changedFieldsWatchData = findModifiedFields(request, newRequest);
+      console.log(changedFieldsWatchData);
       const values = updateRequestObjectCreater(changedFieldsWatchData);
       updateRequest({
         id,
         values,
       });
+      setRequest(newRequest);
     }
-    setRequest(newRequest);
+    if (type === "INIT_UPDATE") {
+      setRequest(newRequest);
+      setUnsavedRequest(newRequest);
+    }
+    setUnsavedRequest(newRequest);
     setCurrentContext("REQUEST");
   };
 
@@ -34,6 +41,7 @@ const AppContextProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         request,
+        unsavedRequest,
         setScenarioRequest,
         scenario,
         setAppScenario,

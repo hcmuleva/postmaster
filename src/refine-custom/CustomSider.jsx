@@ -3,6 +3,8 @@ import useData from "../network/data-provider";
 import MethodText from "../utils/method-text";
 import { ScenariosMenuHeading } from "../utils/scenarios-components";
 import CustomMenu, { getMenuItem } from "./CustomMenu";
+import { FileAddOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 export default function CustomSider() {
   const { data, loading, error } = useData();
   const [scenarios, setSenarios] = useState([]);
@@ -39,7 +41,12 @@ export default function CustomSider() {
   }
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ padding: "0.5rem 1.5rem" }}>
+        <Button type="default">
+          Create Scenario <FileAddOutlined />
+        </Button>
+      </div>
       <CustomMenu menuData={scenarios}></CustomMenu>
     </div>
   );
