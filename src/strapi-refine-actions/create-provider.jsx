@@ -1,6 +1,14 @@
 import { useCreate } from "@refinedev/core";
-function CreateProvider() {
+const CreateProvider = () => {
   const { mutate } = useCreate();
+  function createProviderFunc({ values, resource }) {
+    return mutate({
+      resource,
+      values,
+      invalidates: ["*"],
+    });
+  }
+  return { createProviderFunc };
+};
 
-  function createScenario(){}
-}
+export default CreateProvider;

@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useData from "../network/data-provider";
 import MethodText from "../utils/method-text";
 import { ScenariosMenuHeading } from "../utils/scenarios-components";
 import CustomMenu, { getMenuItem } from "./CustomMenu";
 import { FileAddOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import { AppContext } from "../context";
 export default function CustomSider() {
   const { data, loading, error } = useData();
+  const { changeScenarioModalState } = useContext(AppContext);
   const [scenarios, setSenarios] = useState([]);
   useEffect(() => {
     if (data) {
@@ -43,7 +45,12 @@ export default function CustomSider() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={{ padding: "0.5rem 1.5rem" }}>
-        <Button type="default">
+        <Button
+          type="default"
+          onClick={() => {
+            changeScenarioModalState(true);
+          }}
+        >
           Create Scenario <FileAddOutlined />
         </Button>
       </div>

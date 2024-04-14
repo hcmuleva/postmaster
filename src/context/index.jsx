@@ -10,6 +10,7 @@ const AppContextProvider = ({ children }) => {
   const [unsavedRequest, setUnsavedRequest] = useState(null);
   const [scenario, setScenario] = useState(null);
   const [currentContext, setCurrentContext] = useState(null);
+  const [scenarioModalState, setScenarioModalState] = useState(false);
   const { updateRequest } = useUpdateHook();
 
   const setScenarioRequest = (newRequest, type) => {
@@ -37,11 +38,17 @@ const AppContextProvider = ({ children }) => {
     setCurrentContext("SCENARIO");
   };
 
+  function changeScenarioModalState(newState) {
+    setScenarioModalState(newState);
+  }
+
   return (
     <AppContext.Provider
       value={{
         request,
         unsavedRequest,
+        scenarioModalState,
+        changeScenarioModalState,
         setScenarioRequest,
         scenario,
         setAppScenario,
