@@ -1,14 +1,9 @@
-import { useUpdate } from "@refinedev/core";
-
+import axios from "axios";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 const useUpdateHook = () => {
-  const { mutate } = useUpdate();
-
   const updateRequest = ({ values, id }) => {
-    return mutate({
-      resource: "steps",
-      values: { ...values },
-      id,
-      invalidates: ["steps", "scenarios"],
+    return axios.put(API_URL + `/api/steps/${id}`, {
+      data: { ...values },
     });
   };
 

@@ -1,11 +1,11 @@
-import { useCreate } from "@refinedev/core";
+import axios from "axios";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 const CreateProvider = () => {
-  const { mutate } = useCreate();
   function createProviderFunc({ values, resource }) {
-    return mutate({
-      resource,
-      values,
-      invalidates: ["*"],
+    axios.post(`${API_URL}/api/${resource}`, {
+      data: {
+        ...values,
+      },
     });
   }
   return { createProviderFunc };

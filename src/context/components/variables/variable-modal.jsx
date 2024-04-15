@@ -22,6 +22,7 @@ function VariableModal() {
       }
       open={variableModalState}
       onCancel={() => setVariableModalView(false)}
+      okButtonProps={{style:{display:'none'}}}
     >
       <VariableCreateForm preData={{ pathString, meta }} />
       <Collapse bordered={false}>
@@ -40,3 +41,11 @@ function VariableModal() {
 }
 
 export default VariableModal;
+
+
+
+
+
+
+
+

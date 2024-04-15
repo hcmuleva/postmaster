@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useList } from "@refinedev/core";
+import axios from "axios";
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const useData = (initialData) => {
   const [data, setData] = useState(initialData);
@@ -7,16 +8,34 @@ const useData = (initialData) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { data: scenarioData, isLoading } = useList({
-    resource: "scenarios",
-    meta: {
-      populate: "*",
-    },
-  });
-  const fetchData = () => {
+  const extractStepData = (stepData) => {
+    return stepData.map((step) => {
+      console.log({
+        id: step.id,
+        ...step.attributes,
+      });
+      return { id: step.id, ...step.attributes };
+    });
+  };
+
+  const fetchData = async () => {
     try {
-      setData(scenarioData.data);
-      setDataCount(scenarioData.total);
+      const response = await axios.get(API_URL + "/api/scenarios", {
+        params: {
+          populate: "steps",
+        },
+      });
+      const { data } = response.data;
+      const newData = data.map((scenario) => {
+        const stepData = extractStepData(scenario?.attributes?.steps?.data);
+        return {
+          id: scenario?.id,
+          ...scenario?.attributes,
+          steps: stepData,
+        };
+      });
+      setData(newData);
+      setDataCount(newData.length);
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -25,11 +44,9 @@ const useData = (initialData) => {
   };
 
   useEffect(() => {
-    if (scenarioData && !isLoading) {
-      fetchData();
-    }
+    fetchData();
     return () => {};
-  }, [scenarioData, isLoading]);
+  }, []);
 
   return { data, dataCount, loading, error };
 };

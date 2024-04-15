@@ -20,6 +20,9 @@ function useRequestHandler() {
   };
 
   const getParsedRequestBody = async (requestBody) => {
+    if (!requestBody) {
+      return undefined;
+    }
     return Object.keys(requestBody).length > 0
       ? await JSON.parse(requestBody)
       : undefined;
@@ -37,7 +40,6 @@ function useRequestHandler() {
         data: parsedRequestBody,
       });
       setData(response);
-      console.log(response);
     } catch (error) {
       console.log("error inside handler", error);
       setError(error);

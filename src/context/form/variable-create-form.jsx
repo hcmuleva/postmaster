@@ -1,4 +1,4 @@
-import { Form, Input, Select } from "antd";
+import { Form, Input, Select, Button } from "antd";
 import {
   communicationDataTypeKeys,
   getCommunicationDataSubType,
@@ -25,9 +25,10 @@ function VariableCreateForm({ preData }) {
   type && form.setFieldValue("type", type);
   subType && form.setFieldValue("subtype", subType);
   form.setFieldValue("name", "{{}}");
-  
+
   const onFinish = (values) => {
     console.log("variable values", values);
+    console.log(meta);
   };
 
   const VariableExtracterType = () => {
@@ -75,6 +76,9 @@ function VariableCreateForm({ preData }) {
       </Item>
       <Item label={"SubType"} name={"subtype"}>
         <VariableExtracterSubType />
+      </Item>
+      <Item>
+        <Button htmlType="submit">Create Variable</Button>
       </Item>
     </Form>
   );

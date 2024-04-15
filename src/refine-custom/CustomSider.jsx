@@ -6,9 +6,11 @@ import CustomMenu, { getMenuItem } from "./CustomMenu";
 import { FileAddOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { AppContext } from "../context";
+import ScenarioActionModal from "../context/components/scenario/scenario-action-modal";
 export default function CustomSider() {
   const { data, loading, error } = useData();
-  const { changeScenarioModalState } = useContext(AppContext);
+  const { scenarioModalState, changeScenarioModalState } =
+    useContext(AppContext);
   const [scenarios, setSenarios] = useState([]);
   useEffect(() => {
     if (data) {
@@ -53,6 +55,10 @@ export default function CustomSider() {
         >
           Create Scenario <FileAddOutlined />
         </Button>
+        <ScenarioActionModal
+          scenarioModalState={scenarioModalState}
+          changeScenarioModalState={changeScenarioModalState}
+        />
       </div>
       <CustomMenu menuData={scenarios}></CustomMenu>
     </div>

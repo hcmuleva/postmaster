@@ -4,7 +4,6 @@ import { AppContext } from "../..";
 
 export default function RequestHeaderComponent() {
   const { request } = useContext(AppContext);
-  console.log(request);
   return (
     <section className="request-header-components">
       <h1>{request.name}</h1>

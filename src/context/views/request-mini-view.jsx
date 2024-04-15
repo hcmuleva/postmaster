@@ -3,7 +3,6 @@ import { Descriptions } from "antd";
 
 function RequestMiniView({ requestData }) {
   const { name, url, description, method } = requestData;
-  console.log(requestData);
   const descriptionItems = [
     {
       key: 1,

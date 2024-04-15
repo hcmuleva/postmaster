@@ -19,6 +19,7 @@ const onResponse = (response) => {
 
 const onError = (error) => {
   const endTime = new Date();
+  console.log(error);
   const startTime = error.response.config.metadata.startTime;
   const timeTaken = endTime - startTime;
   const responseBodyString = JSON.stringify(error?.response?.data);

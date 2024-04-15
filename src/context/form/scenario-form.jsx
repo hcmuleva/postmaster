@@ -1,6 +1,6 @@
 import { Form, Input } from "antd";
 import { Button } from "antd";
-import CreateProvider from "../../strapi-refine-actions/create-provider";
+import CreateProvider from "../../strapi-actions/create-provider";
 const { Item } = Form;
 const layout = {
   labelCol: { span: 8 },
@@ -16,8 +16,11 @@ function ScenarioForm({ changeScenarioModalState }) {
   };
   return (
     <Form
+      style={{ padding: "1rem" }}
       form={form}
-      layout={layout}
+      {...layout}
+      colon={false}
+      labelAlign="left"
       name="scenario-create-form"
       onFinish={onFinish}
     >

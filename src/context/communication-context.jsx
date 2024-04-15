@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import useUpdateHook from "../strapi-refine-actions/update-provider";
+import useUpdateHook from "../strapi-actions/update-provider";
 import { AppContext } from "../context/index";
 const CommunicationContext = createContext();
 

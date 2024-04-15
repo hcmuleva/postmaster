@@ -6,6 +6,7 @@ function ScenarioActionModal({ scenarioModalState, changeScenarioModalState }) {
     <Modal
       open={scenarioModalState}
       onCancel={() => changeScenarioModalState(false)}
+      okButtonProps={{ style: { display: "none" } }}
     >
       <ScenarioForm changeScenarioModalState={changeScenarioModalState} />
     </Modal>
