@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { AppContext } from "../context";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const useData = (initialData) => {
@@ -7,13 +8,9 @@ const useData = (initialData) => {
   const [dataCount, setDataCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { refetch, updateRefetchStatus } = useContext(AppContext);
   const extractStepData = (stepData) => {
     return stepData.map((step) => {
-      console.log({
-        id: step.id,
-        ...step.attributes,
-      });
       return { id: step.id, ...step.attributes };
     });
   };
@@ -44,9 +41,12 @@ const useData = (initialData) => {
   };
 
   useEffect(() => {
+    if (refetch) {
+      updateRefetchStatus(false);
+    }
     fetchData();
     return () => {};
-  }, []);
+  }, [refetch]);
 
   return { data, dataCount, loading, error };
 };

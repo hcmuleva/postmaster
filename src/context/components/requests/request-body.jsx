@@ -7,7 +7,7 @@ function RequestBody() {
   return (
     <div>
       <textarea
-        value={requestBody}
+        value={requestBody ?? ""}
         style={{
           width: "100%",
           height: "270px",

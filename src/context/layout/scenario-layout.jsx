@@ -7,6 +7,7 @@ import ScenarioVariables from "../components/scenario/scenario-variables";
 function ScenarioLayout() {
   const { scenario } = useContext(AppContext);
   const { name, description, steps, variables } = scenario;
+  console.log(variables, scenario);
   const scenarioHeaderData = { name, description };
   return (
     <div>

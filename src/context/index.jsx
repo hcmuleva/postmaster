@@ -13,6 +13,7 @@ const AppContextProvider = ({ children }) => {
   const [scenarioModalState, setScenarioModalState] = useState(false);
   const [currentContext, setCurrentContext] = useState(null);
   const { updateRequest } = useUpdateHook();
+  const [refetch, setRefetch] = useState(false);
 
   const setScenarioRequest = (newRequest, type) => {
     if (type === "UPDATE") {
@@ -23,7 +24,7 @@ const AppContextProvider = ({ children }) => {
         id,
         values,
       })
-        .then((response) => {
+        .then(() => {
           setRequest(newRequest);
         })
         .catch((error) => {
@@ -41,10 +42,10 @@ const AppContextProvider = ({ children }) => {
     setCurrentContext("REQUEST");
   };
 
-  const setAppScenario = (newScenario) => {
+  function setAppScenario(newScenario) {
     setScenario(newScenario);
     setCurrentContext("SCENARIO");
-  };
+  }
 
   function changeScenarioModalState(newState) {
     setScenarioModalState(newState);
@@ -54,9 +55,15 @@ const AppContextProvider = ({ children }) => {
     setRequestModalState(newState);
   }
 
+  function updateRefetchStatus(newState) {
+    setRefetch(newState);
+  }
+
   return (
     <AppContext.Provider
       value={{
+        refetch,
+        updateRefetchStatus,
         request,
         requestModalState,
         changeRequestModalState,

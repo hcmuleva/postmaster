@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CommunicationContext } from "../../communication-context";
 import "../../../styles/response-header.css";
 import RequestStatus from "./response-context";
+import formatBytes from "../../../utils/byte-size";
 function ResponseHeader() {
   const { response } = useContext(CommunicationContext);
 
@@ -14,7 +15,7 @@ function ResponseHeader() {
       <div>
         <p>{response?.metadata?.timeTaken} ms</p>
       </div>
-      <div>{response?.metadata?.responseBodySize + "B"}</div>
+      <div>{formatBytes(response?.metadata?.responseBodySize)}</div>
       <RequestStatus code={response?.status} message={response?.message} />
     </div>
   );

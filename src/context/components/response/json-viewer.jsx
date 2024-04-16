@@ -27,10 +27,11 @@ export default function JsonViewerComponent({ response, type, subType }) {
     <>
       <JSONTree
         src={response}
-        style={{ ...defaultStyles, width: "80%" }}
+        style={{ ...defaultStyles, maxWidth: "100vw" }}
         onSelect={handleClick}
+        collapseStringsAfterLength={50}
       />
-      ;{variableModalState && <VariableView children={<VariableModal />} />}
+      {variableModalState && <VariableView children={<VariableModal />} />}
     </>
   );
 }

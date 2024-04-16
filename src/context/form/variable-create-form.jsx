@@ -3,6 +3,11 @@ import {
   communicationDataTypeKeys,
   getCommunicationDataSubType,
 } from "../../utils/communication-data-utils";
+import useUpdateHook from "../../strapi-actions/update-provider";
+import { useContext } from "react";
+import { AppContext } from "..";
+import { TestRunnerContext } from "../test-runner-context";
+
 const { Item } = Form;
 const { Option } = Select;
 
@@ -12,7 +17,11 @@ const layout = {
 };
 
 function VariableCreateForm({ preData }) {
-  const { pathString, meta } = preData;
+  const { updateScenario } = useUpdateHook();
+  const { setVariableModalView } = useContext(TestRunnerContext);
+  const { updateRefetchStatus } = useContext(AppContext);
+
+  const { pathString, meta, scenarioId, requestId, preVariables } = preData;
   const { type, subType } = meta;
 
   if (!pathString || !meta) {
@@ -27,8 +36,21 @@ function VariableCreateForm({ preData }) {
   form.setFieldValue("name", "{{}}");
 
   const onFinish = (values) => {
-    console.log("variable values", values);
-    console.log(meta);
+    if (!preVariables.some((obj) => obj.name === values.name)) {
+      preVariables.push({
+        ...values,
+        requestId: requestId,
+      });
+    }
+    console.log(preVariables);
+    updateScenario({
+      id: scenarioId,
+      values: {
+        variables: preVariables,
+      },
+    });
+    updateRefetchStatus(true);
+    setVariableModalView(false);
   };
 
   const VariableExtracterType = () => {

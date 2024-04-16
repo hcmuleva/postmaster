@@ -22,14 +22,22 @@ function VariableModal() {
       }
       open={variableModalState}
       onCancel={() => setVariableModalView(false)}
-      okButtonProps={{style:{display:'none'}}}
+      okButtonProps={{ style: { display: "none" } }}
     >
-      <VariableCreateForm preData={{ pathString, meta }} />
+      <VariableCreateForm
+        preData={{
+          pathString,
+          meta,
+          scenarioId: request.scenario_id,
+          requestId: request.id,
+          preVariables: request.variables,
+        }}
+      />
       <Collapse bordered={false}>
         <Panel
           header={
             <p>
-              <span style={{color:'#B5C0D0'}}>Request Details</span>
+              <span style={{ color: "#B5C0D0" }}>Request Details</span>
             </p>
           }
         >
@@ -41,11 +49,3 @@ function VariableModal() {
 }
 
 export default VariableModal;
-
-
-
-
-
-
-
-

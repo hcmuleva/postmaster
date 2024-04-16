@@ -24,7 +24,11 @@ export default function CustomSider() {
             <MethodText text={request_item.requesttype} key={index} />,
             null,
             null,
-            { ...request_item, scenario_id: item.id }
+            {
+              ...request_item,
+              variables: item.variables,
+              scenario_id: item.id,
+            }
           )
         );
         return getMenuItem(
