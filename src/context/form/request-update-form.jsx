@@ -1,28 +1,28 @@
+import { useContext, useState } from "react";
+import { AppContext } from "..";
 import { Form, Input, Button } from "antd";
 import CreateProvider from "../../strapi-actions/create-provider";
 import RequestMethodSelect from "../../utils/method-select";
-import { useContext, useState } from "react";
-import { AppContext } from "..";
 const { Item } = Form;
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 14 },
 };
-function RequestCreateForm({ scenarioId }) {
-  const { createProviderFunc } = CreateProvider();
+function RequestUpdateForm({ requestUpdateModeData }) {
+
+
+  
   const [form] = Form.useForm();
   const [method, setMethodChange] = useState("GET");
-  const { requestUpdateModeData } = useContext(AppContext);
-
-  
-
-  
+  console.log(requestUpdateModeData);
+  const { name, url, requesttype } = requestUpdateModeData;
+  form.setFieldValue("name", name);
+  form.setFieldValue("url", url);
+  form.setFieldValue("requesttype", requesttype);
+  console.log(requesttype);
 
   function onFinish(values) {
-    createProviderFunc({
-      resource: "steps",
-      values: { ...values, scenario: scenarioId, requesttype: method },
-    });
+    console.log(values);
   }
 
   return (
@@ -76,4 +76,4 @@ function RequestCreateForm({ scenarioId }) {
   );
 }
 
-export default RequestCreateForm;
+export default RequestUpdateForm;

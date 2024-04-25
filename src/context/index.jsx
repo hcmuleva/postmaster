@@ -8,6 +8,7 @@ const AppContext = createContext();
 const AppContextProvider = ({ children }) => {
   const [request, setRequest] = useState(null);
   const [requestModalState, setRequestModalState] = useState(false);
+  const [requestUpdateModeData, setRequestUpdateModeData] = useState(null);
   const [unsavedRequest, setUnsavedRequest] = useState(null);
   const [scenario, setScenario] = useState(null);
   const [scenarioModalState, setScenarioModalState] = useState(false);
@@ -63,6 +64,8 @@ const AppContextProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         refetch,
+        requestUpdateModeData,
+        setRequestUpdateModeData,
         updateRefetchStatus,
         request,
         requestModalState,

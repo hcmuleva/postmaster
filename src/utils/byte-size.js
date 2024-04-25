@@ -5,13 +5,10 @@ function formatBytes(bytesString) {
   }
 
   if (bytes >= 1000) {
-    // Convert bytes to KB
     let kb = bytes / 1000;
     if (kb >= 1000) {
-      // Convert KB to MB
       let mb = kb / 1000;
       if (mb >= 1000) {
-        // Convert MB to GB
         let gb = mb / 1000;
         return gb.toFixed(2) + " GB";
       } else {
