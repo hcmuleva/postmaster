@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "firstName": "Maxine",
+  "lastName": "Terry",
+  "email": "sonia80@gmail.com",
+  "status": true,
+  "birthday": "2024-03-07T20:19:08.861Z",
+  "skills": ["redis", "swift", "javascript"],
+  "avatar": [
+    {
+      "name": "Maxine.jpg",
+      "percent": 100,
+      "size": 40088,
+      "status": "done",
+      "type": "image/jpeg",
+      "uid": "rc-upload-1712765222444",
+      "url": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/170.jpg",
+      "format": {
+        "formate1": {
+          "data": "hello"
+        },
+        "formate2": {
+          "data": "hello"
+        }
+      }
+    }
+  ]
+}

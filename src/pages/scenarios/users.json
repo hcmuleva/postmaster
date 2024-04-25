@@ -1,0 +1,212 @@
+[
+    {
+    "id": 1,
+    "username": "Chanthrika_RL",
+    "email": "chanthrika.rl@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-03-21T08:06:30.205Z",
+    "updatedAt": "2024-03-21T08:06:30.205Z"
+    },
+    {
+    "id": 2,
+    "username": "Harini",
+    "email": "harini_t_p@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-08T09:48:54.021Z",
+    "updatedAt": "2024-04-08T09:48:54.021Z"
+    },
+    {
+    "id": 3,
+    "username": "hcmuleva",
+    "email": "hcmuleva@gmail.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T03:42:16.639Z",
+    "updatedAt": "2024-04-16T03:42:16.639Z"
+    },
+    {
+    "id": 4,
+    "username": "Shelly.Sengupta",
+    "email": "shelly.sengupta@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:17:05.941Z",
+    "updatedAt": "2024-04-16T05:17:05.941Z"
+    },
+    {
+    "id": 5,
+    "username": "harish.muleva@dell.com",
+    "email": "harish.muleva@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:17:57.918Z",
+    "updatedAt": "2024-04-16T05:17:57.918Z"
+    },
+    {
+    "id": 6,
+    "username": "ChandraSekhar Bhogaraju",
+    "email": "chandrasekhar.bhogaraju@dellteam.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:30:28.854Z",
+    "updatedAt": "2024-04-16T05:32:31.031Z"
+    },
+    {
+    "id": 7,
+    "username": "Mahaveer Jain",
+    "email": "mahaveer_jain@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:34:30.190Z",
+    "updatedAt": "2024-04-16T05:37:45.130Z"
+    },
+    {
+    "id": 8,
+    "username": "Nidhi Rajpal",
+    "email": "nidhi.rajpal@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:38:56.737Z",
+    "updatedAt": "2024-04-16T05:42:24.784Z"
+    },
+    {
+    "id": 9,
+    "username": "Avinash",
+    "email": "avinash.avinash1@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:45:01.451Z",
+    "updatedAt": "2024-04-16T05:45:01.451Z"
+    },
+    {
+    "id": 10,
+    "username": "Mansi Bhalerao",
+    "email": "mansi_bhalerao@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:45:53.365Z",
+    "updatedAt": "2024-04-16T05:45:53.365Z"
+    },
+    {
+    "id": 11,
+    "username": "Venkataramana Bijjam",
+    "email": "venkataramana_bijjam@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:46:46.115Z",
+    "updatedAt": "2024-04-16T05:46:46.115Z"
+    },
+    {
+    "id": 12,
+    "username": "Davis CJ",
+    "email": "davis.cj@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:47:30.269Z",
+    "updatedAt": "2024-04-16T05:47:30.269Z"
+    },
+    {
+    "id": 13,
+    "username": "Chaitanya Garimella",
+    "email": "chaitanya.garimella@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:48:39.853Z",
+    "updatedAt": "2024-04-16T05:48:39.853Z"
+    },
+    {
+    "id": 14,
+    "username": "Princy Jain",
+    "email": "princy.jain@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:49:49.609Z",
+    "updatedAt": "2024-04-16T05:49:49.609Z"
+    },
+    {
+    "id": 15,
+    "username": "Kiran Kumar B N",
+    "email": "kiran.kumar_b_n@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:50:57.076Z",
+    "updatedAt": "2024-04-16T05:50:57.076Z"
+    },
+    {
+    "id": 16,
+    "username": "Satyajeet Kumar",
+    "email": "satyajeet_kumar@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:51:30.337Z",
+    "updatedAt": "2024-04-16T05:51:30.337Z"
+    },
+    {
+    "id": 17,
+    "username": "Badari Narayan",
+    "email": "badari.narayan1@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:52:20.811Z",
+    "updatedAt": "2024-04-16T05:52:20.811Z"
+    },
+    {
+    "id": 18,
+    "username": "Magesh Rajendiran",
+    "email": "magesh.rajendiran@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T05:52:50.834Z",
+    "updatedAt": "2024-04-16T05:52:50.834Z"
+    },
+    {
+    "id": 19,
+    "username": "rajesh sharma_v",
+    "email": "rajesh.sharma_v@dellteam.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T06:18:56.106Z",
+    "updatedAt": "2024-04-16T06:18:56.106Z"
+    },
+    {
+    "id": 20,
+    "username": "phanikumar vjbs",
+    "email": "phanikumar.vjbs@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T06:19:54.265Z",
+    "updatedAt": "2024-04-16T06:19:54.265Z"
+    },
+    {
+    "id": 21,
+    "username": "kantharaj yadav",
+    "email": "kantharaj.yadav@dell.com",
+    "provider": "local",
+    "confirmed": false,
+    "blocked": false,
+    "createdAt": "2024-04-16T06:20:34.556Z",
+    "updatedAt": "2024-04-16T06:20:34.556Z"
+    }
+    ]
