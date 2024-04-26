@@ -42,9 +42,7 @@ const EditableCell = ({
         ...record,
         ...values,
       });
-    } catch (errInfo) {
-      
-    }
+    } catch (errInfo) {}
   };
   let childNode = children;
   if (editable) {
@@ -78,10 +76,7 @@ const EditableCell = ({
   return <td {...restProps}>{childNode}</td>;
 };
 const HeaderOptionForm = ({ stepdata }) => {
-  
-  console.log(stepdata);
-
-  stepdata.header.map((item, index) => {
+  stepdata?.header?.map((item, index) => {
     item.key = item.name;
   });
   const [headerOptions, setCurrentHeaderOptions] = useState(
