@@ -11,7 +11,7 @@ export const ProjectEdit= () => {
 
     
     const tabChange = (key) => {
-        console.log(key);
+        
     };
 
     const items = [

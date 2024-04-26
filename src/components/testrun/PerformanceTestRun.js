@@ -96,7 +96,7 @@ const PerformanceTestRun = ({ open, setOpen, item }) => {
             setConfirmLoading(true);
             await axios.post(`${formdata.orchestratorpath}/performance`, mydata)
                 .then(response => {
-                    console.log('Response:', response);
+                    
                      setConfirmLoading(false);
                      const successtitle = `${auttype} test execution completed`
                     // const body = (
@@ -108,7 +108,7 @@ const PerformanceTestRun = ({ open, setOpen, item }) => {
                      success(successtitle, body)
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    
 
                 });
         } else {
@@ -182,7 +182,7 @@ const PerformanceTestRun = ({ open, setOpen, item }) => {
     };
 
     const handleCancel = () => {
-        console.log('Clicked cancel button');
+        
         setOpen(false);
     };
     const options = [];
@@ -191,7 +191,7 @@ const PerformanceTestRun = ({ open, setOpen, item }) => {
     }
 
     const handleChange = (value) => {
-        console.log(`selected ${value}`);
+        
 
         setFilelist(value)
     };

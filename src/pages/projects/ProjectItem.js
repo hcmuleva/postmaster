@@ -27,7 +27,7 @@ export const ProjectItem = ({ item }) => {
    
     const handleChange = (value) => {
         console.log("Valie",value)
-        console.log(`selected ${value}`);
+        
         setConfigId(value)
       };
     return (

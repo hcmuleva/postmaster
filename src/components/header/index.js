@@ -46,7 +46,7 @@ const Header = () => {
   //   const ably = new Realtime({ key: API_KEY });
   //   const channel = ably.channels.get(CHANNEL_NAME);
   //   const handleNotification = (message) => {
-  //       console.log('Received a notification:', message.data);
+  //       
   //     setNotifications((prevNotifications) => [
   //       ...prevNotifications,
   //       { ...message.data, read: false, selected: false },
@@ -92,7 +92,7 @@ const Header = () => {
 //     });
 //   };
 //   useChannel('sdltest', (message) => {
-//     console.log("Header",message.data);
+//     
 //     setNotifications((prevNotifications) => [
 //         ...prevNotifications,
 //         { ...message.data, read: false, selected: false },

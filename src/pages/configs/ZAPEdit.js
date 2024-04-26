@@ -64,7 +64,7 @@ const TOKEN_KEY = process.env.REACT_APP_TOKEN_KEY
                     formProps.onFinish?.(mediaUploadMapper(payload));
                     setFormdata(intdata)
                 } catch (error) {
-                    console.log('Error creating config:', error);
+                    
                 }
 
 

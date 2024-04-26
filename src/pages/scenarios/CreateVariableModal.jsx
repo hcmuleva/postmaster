@@ -10,7 +10,7 @@ const CreateVariableModal = ({ visible, setVisible, onCreate, onCancel, record }
   // console.log("record.variables",record.variables)
   const { mutate } = useUpdate();
 
-  // console.log(record);
+  // 
 
 
   const [form] = Form.useForm();
@@ -29,7 +29,7 @@ const CreateVariableModal = ({ visible, setVisible, onCreate, onCancel, record }
 
   const onFinish = values => {
     console.log("OnFinishvalues", values)
-    console.log("ddd", record.variables);
+    
     const variabledata = [
       ...(values.variables ? values.variables.filter(variable => variable !== undefined) : []),
       ...(record.variables ? record.variables.filter(variable => variable !== undefined) : [])
@@ -71,7 +71,7 @@ const CreateVariableModal = ({ visible, setVisible, onCreate, onCancel, record }
             onFinish(values);
           })
           .catch(info => {
-            console.log('Validate Failed:', info);
+            
           });
       }}
     >

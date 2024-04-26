@@ -16,20 +16,20 @@ const FunctionalTestRun = ({open,setOpen,item}) => {
         const mydata = { data: formdata }
         await axios.post(`${formdata.orchestratorpath}/functional`, mydata)
                 .then(response => {
-                    console.log('Response:', response);
+                    
                      
                     setOpen(false);
                      
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    
 
                 });
         setOpen(false);
 
     }
     const handleCancel = () => {
-        console.log('Clicked cancel button');
+        
         setOpen(false);
       };
     return (

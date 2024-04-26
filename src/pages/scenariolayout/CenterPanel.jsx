@@ -1,31 +1,26 @@
-import React, { use, useEffect } from 'react';
-import ScenarioPage from './ScenarioPage';
-import StepPage from './StepPage';
+import React, { useState, useEffect, useContext } from "react";
+import ScenarioPage from "./ScenarioPage";
+import StepPage from "./StepPage";
+import { TestContext } from "../context";
 
-const CenterPanel = ({scenariodata,selectedData, selectiontype}) => {
-   const getComponent= ()=>{
-        if(selectiontype === "STEP"){
-            return (
-               <StepPage scenariodata={scenariodata} selectedData={selectedData}/>
-            );
-        }
-        if(selectiontype === "SCENARIO"){
-            return (
-                <ScenarioPage scenariodata={scenariodata} selectedData={selectedData} />
-            );
-        }
-    } 
-    useEffect(() => {
-        getComponent();
-    }, [selectiontype,selectedData]);
-    return (
-        <div>
-            {getComponent()}
-        </div>
-    );
-    
+const CenterPanel = () => {
+  const [componentToRender, setComponentToRender] = useState(null);
+  const { contextType, currentScenario } = useContext(TestContext);
 
-    
+  useEffect(() => {
+    switch (contextType) {
+      case "STEP":
+        setComponentToRender(<StepPage />);
+        break;
+      case "SCENARIO":
+        setComponentToRender(<ScenarioPage selectedData={currentScenario} />);
+        break;
+      default:
+        setComponentToRender(null); // Handle unknown contextType
+    }
+  }, [contextType]);
+
+  return <div>{componentToRender}</div>;
 };
 
 export default CenterPanel;

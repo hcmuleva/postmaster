@@ -33,19 +33,19 @@ export const ResultList = () => {
   // useEffect to set sdlData,performanceData,functionalDat once tableProps is set
   useEffect(() => {
     if (Array.isArray(tableProps)) {
-      console.log("Aray is defined.");
-      tableProps.forEach((item) => {  console.log("DDSDS",item.testtype); });
+      
+      tableProps.forEach((item) => {   });
 
       // Create three separate arrays based on testtype
       setSdlData(tableProps.filter(item => item.testtype === "SDL"));
       setPerformanceData(tableProps.filter(item => item.testtype === "PERFORMANCE"));
       setFunctionalData(tableProps.filter(item => item.testtype === "FUNCTIONAL"));
     
-      console.log("SDL Data:", sdlData);
-      console.log("Performance Data:", performanceData);
-      console.log("Functional Data:", functionalData);
+      
+      
+      
     } else {
-      console.log("tableProps is not an array or is undefined.");
+      
     }
     
   }, [tableProps]);
@@ -53,7 +53,7 @@ export const ResultList = () => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [debouncedSearchText] = useDebounce(searchText, 500);
   const onChange = (key) => {
-    console.log(key);
+    
   };
   console.log("tableProps",tableProps)
   const items = [

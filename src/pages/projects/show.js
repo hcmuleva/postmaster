@@ -16,7 +16,7 @@ export const ProjectShow = () => {
       <h1>Loading</h1>
     }
     const tabChange = (key) => {
-        console.log(key);
+        
     };
     const items = [
         {

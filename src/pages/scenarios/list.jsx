@@ -1,99 +1,122 @@
 import { List as AntdList } from "antd";
-import { List,useSimpleList  } from "@refinedev/antd";
+import { List, useSimpleList } from "@refinedev/antd";
 
 import ScenarioItem from "./ScenarioItem";
 import CustomMenu from "./refine-custom/CustomMenu";
-import React,{ useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CustomLayout from "./refine-custom/CustomLayout";
 import { AppContextProvider } from "./context";
 import { CommunicationContextProvider } from "./context/communication-context";
 import useData from "./network/data-provider";
 import ScenarioLayout from "../scenariolayout/ScenarioLayout";
-import jsdata from "./users.json"   
+import jsdata from "./users.json";
+import { TestContext } from "../context";
 export const ScenarioContext = React.createContext();
 
-const functionTest=(jsonObject)=>{
-    let text = JSON.stringify(jsonObject);
+const functionTest = (jsonObject) => {
+  let text = JSON.stringify(jsonObject);
 
-   // let text = "This is a {{sample}} string with {{multiple}} values.";
-let myvariables = {'sample':'mysimpledata', 'multiple':'multiplemydata'};
+  // let text = "This is a {{sample}} string with {{multiple}} values.";
+  let myvariables = { sample: "mysimpledata", multiple: "multiplemydata" };
 
-// Regular expression pattern to match values between {{ and }}
-let pattern = /\{\{([^}]+)\}\}/g;
+  // Regular expression pattern to match values between {{ and }}
+  let pattern = /\{\{([^}]+)\}\}/g;
 
-// Find all matches
-let matches = text.match(pattern);
+  // Find all matches
+  let matches = text.match(pattern);
 
-// Replace matches with values from myvariables
-let replacedText = text.replace(pattern, (match, key) => {
+  // Replace matches with values from myvariables
+  let replacedText = text.replace(pattern, (match, key) => {
     // Check if the key exists in myvariables
     if (myvariables.hasOwnProperty(key)) {
-        // Replace the match with the corresponding value from myvariables
-        return myvariables[key];
+      // Replace the match with the corresponding value from myvariables
+      return myvariables[key];
     }
     // If key not found, return the original match
     return match;
-});
+  });
 
-console.log(replacedText);
-    return "functionTest harish ";
-}
+  return "functionTest harish ";
+};
 export const ScenarioList = () => {
-    const[scenario,setScenario]=useState(null);
-    const [currentContext, setCurrentContext] = useState(null);
-    const emails = jsdata.map(element => element.email);
+  const [scenario, setScenario] = useState(null);
+  const emails = jsdata.map((element) => element.email);
 
-    
-    const { listProps } = useSimpleList({
-        resource: "scenarios",
-        metaData: { populate: ["steps"] },
-        pagination: {
-            pageSize: 200,
-          },
+  const {
+    allScenarios,
+    setAllScenarios,
+    refetchResources,
+    setRefetchResources,
+  } = useContext(TestContext);
+
+  const {
+    listProps,
+    queryResult: { refetch },
+  } = useSimpleList({
+    resource: "scenarios",
+    metaData: { populate: ["steps"] },
+    pagination: {
+      pageSize: 200,
+    },
+  });
+
+  useData(listProps.dataSource);
+
+  useEffect(() => {
+    const updatedScenarioData = listProps?.dataSource?.map((scenario) => {
+      const updatedSteps = scenario.steps.map((step) => ({
+        ...step,
+        scenarioid: scenario.id,
+      }));
+      return {
+        ...scenario,
+        steps: updatedSteps,
+      };
     });
-    console.log("listProps",listProps)
-    const [scenarios, setSenarios] = useState([]);
-    useData(listProps.dataSource);
-    
-    if(listProps.loading){
-        console.log("scenariosData is loading")
-        return <div>Loading...</div>
-    }
-    const value = {
-        scenario,
-        setScenario
-    };
+    setAllScenarios(updatedScenarioData);
+  }, [listProps.dataSource]);
 
-    
-    return (
+  useEffect(() => {
+    refetch();
+    setRefetchResources(false);
+  }, [refetchResources]);
 
-        // <div>
-           
-        //     <List >
-        //         <AntdList
-        //             grid={{ gutter: 16, xs: 1 }}
-        //             style={{
-        //                 justifyContent: "center",
-        //             }}
-        //             {...listProps}
-        //             renderItem={(item) => {
-        //                 return <AntdList.Item>
-        //                     <ScenarioItem item={item} />
-        //                 </AntdList.Item>
-        //             }}
-        //         />
-        //     </List>
+  if (listProps.loading) {
+    return <div>Loading...</div>;
+  }
+  const value = {
+    scenario,
+    setScenario,
+  };
 
-        // </div>
-        <div >
-            {/* <AppContextProvider>
+  return (
+    // <div>
+
+    //     <List >
+    //         <AntdList
+    //             grid={{ gutter: 16, xs: 1 }}
+    //             style={{
+    //                 justifyContent: "center",
+    //             }}
+    //             {...listProps}
+    //             renderItem={(item) => {
+    //                 return <AntdList.Item>
+    //                     <ScenarioItem item={item} />
+    //                 </AntdList.Item>
+    //             }}
+    //         />
+    //     </List>
+
+    // </div>
+    <div>
+      {/* <AppContextProvider>
             <CommunicationContextProvider>
      <CustomLayout scenariosData={listProps.dataSource}/>
      </CommunicationContextProvider>
      </AppContextProvider> */}
-        <ScenarioContext.Provider value={value} >  
-     {listProps.dataSource&&<ScenarioLayout scenariodata={listProps.dataSource}/>}
-     </ScenarioContext.Provider>
+      <ScenarioContext.Provider value={value}>
+        {allScenarios && <ScenarioLayout scenariodata={allScenarios} />}
+      </ScenarioContext.Provider>
     </div>
-    )
-}
+  );
+};

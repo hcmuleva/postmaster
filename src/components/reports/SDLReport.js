@@ -21,7 +21,7 @@ const SDLReport = () => {
     });
 
     const tableProps = tableQueryResult?.data?.data;
-    console.log("tableProps", tableProps);
+    
 
     const columns = [
         {

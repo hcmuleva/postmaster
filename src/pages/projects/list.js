@@ -35,7 +35,7 @@ export const ProjectList= () => {
     return (
         <div>
             <Button onClick={()=>{
-                console.log("Harish Subscribe Project");
+                
             }}>Subscribe</Button>
 
                     <List

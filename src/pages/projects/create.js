@@ -29,7 +29,7 @@ export const ProjectCreate = () => {
     const [appTypeVal, setAppTypeVal] = useState('FILEDOWNLOAD');
 
     const tabChange = (key) => {
-        console.log(key);
+        
     };
     const onChangeAutType = (value) => {
         setAppTypeVal(value);

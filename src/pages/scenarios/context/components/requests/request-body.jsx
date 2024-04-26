@@ -14,6 +14,7 @@ function RequestBody() {
         }}
         onChange={(e) => setCurrentRequestBody(e.target.value)}
       ></textarea>
+      <Button>Save</Button>
     </div>
   );
 }

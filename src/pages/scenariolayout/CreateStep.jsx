@@ -3,13 +3,13 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Form, Input,Select, Space } from 'antd';
 import { useCreate } from '@refinedev/core';
 const onFinish = (values) => {
-  console.log('Received values of form:', values);
+  
 };
 const CreateStep = ({scenarioid,setIsModalOpen,selectedData}) => {
     const { mutate } = useCreate();
     console.log("CreateStep",scenarioid)
     const onFinish = (values) => {
-        console.log('Received values of form:', values);
+        
         values['scenario']=scenarioid;
         mutate({
             resource: "steps",
@@ -25,7 +25,7 @@ const CreateStep = ({scenarioid,setIsModalOpen,selectedData}) => {
                 const newSteps=data.data.data
                 console.log("newSteps",newSteps)
                 selectedData.steps.push({id:newSteps.id, ...newSteps.attributes});
-                console.log("selectedData",selectedData);
+                
                 setIsModalOpen(false);
             },
           },);

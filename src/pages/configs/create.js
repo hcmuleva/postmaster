@@ -46,7 +46,7 @@ export const ConfigCreate = () => {
                     formProps.onFinish?.(mediaUploadMapper(values));
                     setFormdata(intdata)
                 } catch (error) {
-                    console.log('Error creating config:', error);
+                    
                 }
             }}>
                 <Row>

@@ -15,7 +15,7 @@
       tagarray.map((elm) => { options.push({ label: elm, value: elm }) })
      
       const handleChange = (value) => {
-        console.log(`selected ${value}`);
+        
     
         setTag(value)
       };
@@ -38,13 +38,13 @@
         console.log("mydata", mydata)
         await axios.post(`${formdata.testplatformurl}/sdl`, mydata)
           .then(response => {
-            console.log('Response:', response);
+            
     
             setOpen(false);
     
           })
           .catch(error => {
-            console.error('Error:', error);
+            
     
           });
         setOpen(false);
@@ -52,7 +52,7 @@
     
       }
       const handleCancel = () => {
-        console.log('Clicked cancel button');
+        
         setOpen(false);
       };
       return (

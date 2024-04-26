@@ -92,22 +92,22 @@ const GitleaksRun = ({ open, setOpen, item }) => {
       
             if (response.ok) {
               // Handle success
-              console.log('File uploaded successfully');
+              
             } else {
               // Handle errors
-              console.error('File upload failed');
+              
             }
           } catch (error) {
-            console.error('An error occurred:', error);
+            
           }
         // await axios.post(`${formdata.testplatformurl}/sdl`, mydata)
         //   .then(response => {
-        //     console.log('Response:', response);
+        //     
         //     setOpen(false);
 
         //   })
         //   .catch(error => {
-        //     console.error('Error:', error);
+        //     
 
         //   });
         setOpen(false);
@@ -115,7 +115,7 @@ const GitleaksRun = ({ open, setOpen, item }) => {
 
     }
     const handleCancel = () => {
-        console.log('Clicked cancel button');
+        
         setOpen(false);
     };
     return (

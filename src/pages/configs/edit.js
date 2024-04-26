@@ -59,7 +59,7 @@ export const ConfigEdit = () => {
                     formProps.onFinish?.(mediaUploadMapper(payload));
                     setFormdata(intdata)
                 } catch (error) {
-                    console.log('Error creating config:', error);
+                    
                 }
 
 

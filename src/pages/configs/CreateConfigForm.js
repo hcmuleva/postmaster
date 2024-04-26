@@ -39,7 +39,7 @@ const CreateConfigForm = ({ testtypeval }) => {
     console.log("data=>", data)
     console.log("optionlist=>", optionList)
     const handleChange = (value) => {
-        console.log(`selected ${value}`);
+        
         //filter value from options where id = value
         const selectedOption = options.filter((elm) => {
             return elm.id === value

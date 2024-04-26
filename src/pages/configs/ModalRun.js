@@ -88,7 +88,7 @@ const createWorkLoad = ()=>{
     setConfirmLoading(true);
   await axios.post(`${formdata.orchestratorpath}/runtest`, mydata)
   .then(response => {
-    console.log('Response:', response);
+    
     setConfirmLoading(false);
     const successtitle = "File download execution completed"
     const body = (
@@ -100,7 +100,7 @@ const createWorkLoad = ()=>{
     success(successtitle,body)
   })
   .catch(error => {
-    console.error('Error:', error);
+    
 
   });
 }else {
@@ -125,7 +125,7 @@ const createWorkLoad = ()=>{
   const handleDelete = (record) => {
     // Implement your delete logic here
     console.log("Before delete",dataSource)
-    console.log('Deleting record:', record);
+    
     const updatedDataSource = dataSource.filter((item) => item.key !== record.key);
     setDataSource(updatedDataSource)
     console.log("updatedDataSource",updatedDataSource)
@@ -179,7 +179,7 @@ const createWorkLoad = ()=>{
   };
   
   const handleCancel = () => {
-    console.log('Clicked cancel button');
+    
     setOpen(false);
   };
   const options = [];
@@ -188,7 +188,7 @@ const createWorkLoad = ()=>{
   }
 
 const handleChange = (value) => {
-  console.log(`selected ${value}`);
+  
 
   setFilelist(value)
 };

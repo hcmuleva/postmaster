@@ -146,22 +146,22 @@ const ZAPParallel = ({ open, setOpen, item }) => {
       
             if (response.ok) {
               // Handle success
-              console.log(' Request submitted to testplatform successfully');
+              
             } else {
               // Handle errors
-              console.error('Request failed to submit to testplatform');
+              
             }
           } catch (error) {
-            console.error('An error occurred:', error);
+            
           }
         // await axios.post(`${formdata.testplatformurl}/sdl`, mydata)
         //   .then(response => {
-        //     console.log('Response:', response);
+        //     
         //     setOpen(false);
 
         //   })
         //   .catch(error => {
-        //     console.error('Error:', error);
+        //     
 
         //   });
         setOpen(false);
@@ -169,7 +169,7 @@ const ZAPParallel = ({ open, setOpen, item }) => {
 
     }
     const handleCancel = () => {
-        console.log('Clicked cancel button');
+        
         setOpen(false);
     };
     return (

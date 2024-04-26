@@ -26,11 +26,11 @@ const CreateStepModal = ({ visible, setVisible, onCreate, onCancel, scenarioid }
 
 
   const onFinish = values => {
-    console.log("OnFinishvalues headerVariables", headerVariables);
-    console.log("OnFinishvalues", values);
+    
+    
     
     const payloaddata = { ...values, header: headerVariables, scenario: scenarioid }
-    console.log("payloaddata", payloaddata);
+    
     mutate(
       {
         url: `${API_URL}/api/steps`,
@@ -42,11 +42,11 @@ const CreateStepModal = ({ visible, setVisible, onCreate, onCancel, scenarioid }
       },
       {
         onSuccess: () => {
-          console.log("Successfully created step");
+          
           //Ned to 
           //We need to call some stuff on Success and failure
         }, onError: () => {
-          console.log("Error in creating step");
+          
         }
       },
     );
@@ -69,7 +69,7 @@ const CreateStepModal = ({ visible, setVisible, onCreate, onCancel, scenarioid }
             onFinish(values);
           })
           .catch(info => {
-            console.log('Validate Failed:', info);
+            
           });
       }}
     >

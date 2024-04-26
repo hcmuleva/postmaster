@@ -22,14 +22,14 @@ const layout = {
 const RunForm= ({rundata,setRundata,formdata,setFormdata,form,configdefault}) => {
   const [requiredMark, setRequiredMarkType] = useState('optional');
   const onChange = (key) => {
-    console.log(key);
+    
   };
 
   const onFinish = (values) => {
-    console.log("form data", formdata,'Success:', values);
+    
   };
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    
   };
   const handleSelectChange = (indexvalue) => {
     const filearrElm=configdefault.filearray[indexvalue]

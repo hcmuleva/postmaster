@@ -69,7 +69,7 @@ const RunScenarioModel = ({ runModalOpen, setRunModalOpen, scenarioid, scenario 
         const modifiedSteps = filteredSteps.map(elm => ({ ...elm, threadcount: threadCounts[elm.id] }));
         console.log("modifiedSteps",modifiedSteps)
         const payload={vu:users,duration:duration,steps:modifiedSteps}
-        console.log("payload", payload);
+        
         // const axiosRequest = axios.post("http://localhost:5000/scenario",payload, { headers:{"Accept":"Application/json", "Content-Type":"Application/json"} });
         // console.log("axiosRequest",axiosRequest)
         // Make an Axios POST request with the specified headers
@@ -77,11 +77,11 @@ const RunScenarioModel = ({ runModalOpen, setRunModalOpen, scenarioid, scenario 
             data:payload
         })
         .then(response => {
-            console.log('Post request successful:', response);
+            
             // Handle response if needed
         })
         .catch(error => {
-            console.error('Error:', error);
+            
             // Handle error if needed
         });
 
@@ -111,7 +111,7 @@ const RunScenarioModel = ({ runModalOpen, setRunModalOpen, scenarioid, scenario 
                             onFinish(values);
                         })
                         .catch(info => {
-                            console.log('Validate Failed:', info);
+                            
                         });
                 }}
             >

@@ -43,7 +43,7 @@ const EditableCell = ({
         ...values,
       });
     } catch (errInfo) {
-      console.log("Save failed:", errInfo);
+      
     }
   };
   let childNode = children;
@@ -77,14 +77,16 @@ const EditableCell = ({
   }
   return <td {...restProps}>{childNode}</td>;
 };
-const HeaderOptionForm = ({stepdata}) => {
+const HeaderOptionForm = ({ stepdata }) => {
+  
+  console.log(stepdata);
 
-    stepdata.header.map((item, index) => {
-        item.key=item.name;
-        
-    })
-  const [headerOptions, setCurrentHeaderOptions ] =
-    useState(stepdata?.header || []);
+  stepdata.header.map((item, index) => {
+    item.key = item.name;
+  });
+  const [headerOptions, setCurrentHeaderOptions] = useState(
+    stepdata?.header || []
+  );
   const [count, setCount] = useState(2);
   const handleDelete = (key) => {
     const newData = headerOptions.filter((item) => item.key !== key);

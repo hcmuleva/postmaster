@@ -8,7 +8,7 @@ const CreateScenario = ({setIsModalOpen,isModalOpen,addScenario}) => {
     const handleOnOk = () => {
         form.validateFields()
             .then(values => {
-                console.log(values);
+                
                 mutate({
                     resource: "scenarios",
                     values: values,
@@ -27,7 +27,7 @@ const CreateScenario = ({setIsModalOpen,isModalOpen,addScenario}) => {
                 setIsModalOpen(false);
             })
             .catch(info => {
-                console.log('Validate Failed:', info);
+                
             });
     }
     return (

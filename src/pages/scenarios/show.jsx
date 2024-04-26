@@ -74,16 +74,16 @@ export const ScenarioShow = () => {
 
   const handleDetail = (record) => {
     // Handle detail action
-    console.log('Detail action clicked for scenario:', record);
+    
   };
   const handleVariables = (record) => {
     // Handle variables action
-    console.log('Variables action clicked for scenario:', record);
+    
   };
 
   const handleRun = (record) => {
     // Handle run action
-    console.log('Run action clicked for scenario:', record);
+    
   };
   const variablecolumns = [
     {
@@ -131,7 +131,7 @@ export const ScenarioShow = () => {
   ];
   //coding require
 
-  // console.log(record);
+  // 
   return (
 
     <Show isLoading={isLoading}>
