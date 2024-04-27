@@ -20,6 +20,9 @@ function useRequestHandler() {
   };
 
   const getParsedRequestBody = async (requestBody) => {
+    if (requestBody === null || requestBody === undefined) {
+      return {};
+    }
     return Object.keys(requestBody).length > 0
       ? await JSON.parse(requestBody)
       : undefined;
@@ -39,7 +42,7 @@ function useRequestHandler() {
       setData(response);
       return response;
     } catch (error) {
-            setError(error);
+      setError(error);
       setData(error.response);
     } finally {
       setLoading(false);

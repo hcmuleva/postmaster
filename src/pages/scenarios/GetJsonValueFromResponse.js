@@ -24,9 +24,7 @@ const getJsonValueByPath = (obj, path) => {
 };
 
 function replaceVariables(jsonData, jsonVariables) {
-  console.log(jsonData, jsonVariables);
-  // Iterate over each variable
-  jsonVariables.forEach((variable) => {
+  jsonVariables?.forEach((variable) => {
     const variableName = variable.name;
     const variableValue = variable[variableName];
 
