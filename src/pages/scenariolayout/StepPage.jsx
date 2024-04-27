@@ -109,6 +109,7 @@ const StepPage = () => {
     const { header, url, requesttype, payload } = currentStep;
     const request = { url, method: requesttype };
     const transferPayload = replaceVariables(payload, updatedVariables);
+    console.log("transfor", transferPayload);
 
     try {
       const response = await fetchData(request, header, transferPayload);

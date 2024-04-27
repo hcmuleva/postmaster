@@ -26,7 +26,12 @@ const getJsonValueByPath = (obj, path) => {
 function replaceVariables(jsonData, jsonVariables) {
   jsonVariables?.forEach((variable) => {
     const variableName = variable.name;
-    const variableValue = variable[variableName];
+    const variableValue = variable['value'];
+
+    console.log(variableName);
+    console.log(variableValue);
+    console.log(jsonData);
+    console.log(jsonVariables);
 
     // Replace all occurrences of {{variableName}} with variableValue in jsonData
     const regex = new RegExp("{{" + variableName + "}}", "g");
